@@ -13,10 +13,10 @@ public class SensorValidator
     }
     
     public static boolean validateSOCreadings(List<Double> values) {
-    	return (values.isEmpty()&&values==null)?false:validateReadings(values,SOC_JUMPFREQUENCY);
+    	return (values==null)?false:validateReadings(values,SOC_JUMPFREQUENCY);
     }
     public static boolean validateCurrentreadings(List<Double> values) {
-        return (values.isEmpty()&&values==null)?false:validateReadings(values,CURRENT_JUMPFREQUENCY);
+        return (values==null)?false:validateReadings(values,CURRENT_JUMPFREQUENCY);
     }
     
     public static boolean validateReadings(List<Double> values,double jumpfrequency){
