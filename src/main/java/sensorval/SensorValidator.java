@@ -24,14 +24,23 @@ public class SensorValidator
     public static boolean validateReadings(List<Double> values,double maxInterval){
     	int lastButOneIndex = values.size() - 1;
         for(int i = 0; i < lastButOneIndex; i++) {
-            if(!isvalueNull(values,i)&&isSensorNoisy(values.get(i), values.get(i + 1),maxInterval)) {
+            if(checkReadings(values,i,maxInterval)) {
             return false;
             }
         }
         return true;
     }
+     
 
-	private static boolean isvalueNull(List<Double> values,int index) {
+	private static boolean checkReadings(List<Double> values, int index,double maxInterval) {
+		
+		if (!isValueNull(values,index)&&isSensorNoisy(values.get(index), values.get(index + 1),maxInterval)) {
+			return true;
+		} 
+		return false;
+	}
+
+	private static boolean isValueNull(List<Double> values,int index) {
 		// check array content is null
 		return (values.get(index)== null || values.get(index + 1)== null);
 	}
