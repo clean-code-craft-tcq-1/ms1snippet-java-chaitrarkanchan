@@ -27,7 +27,7 @@ public class SensorValidatorTest
      @Test
     public void reportsErrorWhenReadingsNull()
     {
-      Double[] readings = {0.0, null, 0.5, 0.51};
+      Double[] readings = {0.0, null, 0.5, 0.9};
         List<Double> currents = Arrays.asList(readings);
         assertFalse(SensorValidator.validateSOCreadings(readings));
     }
